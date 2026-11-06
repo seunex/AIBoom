@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.downstream.ingest</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/oluwaseun/Projects/downstream</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/oluwaseun/Library/Application Support/Herd/config/nvm/versions/node/v22.21.1/bin/node</string>
+    <string>/Users/oluwaseun/Projects/downstream/scripts/ingest.mjs</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict>
+      <key>Hour</key>
+      <integer>8</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+    <dict>
+      <key>Hour</key>
+      <integer>14</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+    <dict>
+      <key>Hour</key>
+      <integer>20</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+  </array>
+  <key>StandardOutPath</key>
+  <string>/Users/oluwaseun/Projects/downstream/logs/ingest.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/oluwaseun/Projects/downstream/logs/ingest.log</string>
+</dict>
+</plist>

@@ -1,0 +1,78 @@
+[
+  {
+    "name": "BBC News",
+    "url": "https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "name": "The Guardian",
+    "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss"
+  },
+  {
+    "name": "The Guardian",
+    "url": "https://www.theguardian.com/technology/cybercrime/rss"
+  },
+  {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/id/10001147/device/rss/rss.html"
+  },
+  {
+    "name": "CBS News",
+    "url": "https://www.cbsnews.com/latest/rss/moneywatch"
+  },
+  {
+    "name": "TechCrunch",
+    "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+  },
+  {
+    "name": "The Verge",
+    "url": "https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "name": "Wired",
+    "url": "https://www.wired.com/feed/tag/ai/latest/rss"
+  },
+  {
+    "name": "Ars Technica",
+    "url": "https://feeds.arstechnica.com/arstechnica/technology-lab"
+  },
+  {
+    "name": "The New York Times",
+    "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"
+  },
+  {
+    "name": "BBC News",
+    "url": "https://feeds.bbci.co.uk/news/business/rss.xml"
+  },
+  {
+    "name": "The Guardian",
+    "url": "https://www.theguardian.com/business/rss"
+  },
+  {
+    "name": "The Register",
+    "url": "https://www.theregister.com/software/headlines.atom"
+  },
+  {
+    "name": "DutchNews",
+    "url": "https://www.dutchnews.nl/feed/"
+  },
+  {
+    "name": "NL Times",
+    "url": "https://nltimes.nl/rss.xml"
+  },
+  {
+    "name": "Euronews",
+    "url": "https://www.euronews.com/rss?format=mrss&level=vertical&name=business"
+  },
+  {
+    "name": "Politico Europe",
+    "url": "https://www.politico.eu/feed/"
+  },
+  {
+    "name": "France 24",
+    "url": "https://www.france24.com/en/business/rss"
+  },
+  {
+    "name": "Financial Times",
+    "url": "https://www.ft.com/rss/home/uk"
+  }
+]
