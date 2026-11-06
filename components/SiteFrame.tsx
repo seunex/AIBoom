@@ -38,7 +38,6 @@ export function SiteFrame({
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 pt-8 pb-16">
         {children}
       </main>
-      <DigestPrompt />
       <footer className="mx-auto w-full max-w-3xl px-6 pb-12 text-sm leading-6 text-muted">
         <p>
           Figures appear as the source worded them. Downstream keeps each
@@ -58,6 +57,7 @@ export function SiteFrame({
             Story feed
           </a>
         </p>
+        <DigestPrompt />
       </footer>
     </>
   );

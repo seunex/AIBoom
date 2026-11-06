@@ -25,7 +25,7 @@ export function DigestPrompt() {
   return (
     <aside
       aria-label="Daily digest"
-      className="digest-rise fixed right-4 bottom-4 z-40 w-[min(22rem,calc(100vw-2rem))] overflow-hidden border border-line bg-white shadow-[0_18px_40px_rgba(16,33,30,0.16)] sm:right-6 sm:bottom-6"
+      className="digest-rise relative z-40 mt-8 w-full overflow-hidden border border-line bg-white shadow-[0_18px_40px_rgba(16,33,30,0.16)] md:fixed md:right-6 md:bottom-6 md:mt-0 md:w-[22rem]"
     >
       <div className="flex items-center justify-between gap-3 bg-mast px-4 py-2.5 text-paper">
         <p className="text-[0.68rem] uppercase tracking-[0.16em] text-glow">Daily digest</p>

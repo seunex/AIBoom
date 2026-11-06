@@ -1,3 +1,4 @@
+import { FeedControls } from "@/components/FeedControls";
 import { FilterBar } from "@/components/FilterBar";
 import { LabelGuide } from "@/components/LabelGuide";
 import { Pagination } from "@/components/Pagination";
@@ -38,22 +39,25 @@ export async function Feed({ searchParams }: { searchParams: SearchParams }) {
 
   return (
     <div className="mt-8 border-t border-line pt-4">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <LabelGuide />
-        <StorySearch
-          query={filtered.query}
-          impact={filtered.impact}
-          industry={filtered.industry}
-        />
-      </div>
-      <div className="mt-4">
-        <FilterBar
-          impact={filtered.impact}
-          industry={filtered.industry}
-          industries={industriesIn(stories)}
-          query={filtered.query}
-        />
-      </div>
+      <FeedControls
+        active={Boolean(filtered.impact || filtered.industry)}
+        label={<LabelGuide />}
+        search={
+          <StorySearch
+            query={filtered.query}
+            impact={filtered.impact}
+            industry={filtered.industry}
+          />
+        }
+        filters={
+          <FilterBar
+            impact={filtered.impact}
+            industry={filtered.industry}
+            industries={industriesIn(stories)}
+            query={filtered.query}
+          />
+        }
+      />
       <p className="mt-4 text-sm text-muted">
         {total === 0
           ? "0 stories"

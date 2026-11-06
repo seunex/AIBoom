@@ -35,7 +35,7 @@ export function StorySearch({
 
   if (!open) {
     return (
-      <div className="shrink-0">
+      <div className="shrink-0 md:ml-auto">
         <button
           type="button"
           onClick={openSearch}
@@ -59,7 +59,7 @@ export function StorySearch({
       method="get"
       role="search"
       onSubmit={onSubmit}
-      className="flex w-full basis-full gap-2"
+      className="flex w-full basis-full gap-2 md:ml-auto"
     >
       {impact ? <input type="hidden" name="impact" value={impact} /> : null}
       {industry ? <input type="hidden" name="industry" value={industry} /> : null}
