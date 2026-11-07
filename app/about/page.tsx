@@ -6,12 +6,12 @@ import { site, suggestionMailto } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "How Downstream chooses stories, labels the AI link, and sends readers back to the original reporting.",
+    "How AI Boom Downstream chooses stories, labels the AI link, and sends readers back to the original reporting.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About",
     description:
-      "How Downstream chooses stories, labels the AI link, and sends readers back to the original reporting.",
+      "How AI Boom Downstream chooses stories, labels the AI link, and sends readers back to the original reporting.",
     url: "/about",
   },
 };
@@ -23,7 +23,7 @@ export default function AboutPage() {
         <h1 className="font-serif text-4xl tracking-tight">About this desk</h1>
         <div className="mt-6 space-y-5 text-base leading-7">
           <p>
-            Downstream is a reading room for what AI is doing to work, and for
+            AI Boom Downstream is a reading room for what AI is doing to work, and for
             attacks outlets say were carried out with AI. The desk follows
             layoffs, hiring freezes, role changes, reskilling, shifts in
             demand, and reported fraud or breaches, including the cases where

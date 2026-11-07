@@ -47,14 +47,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     title: site.name,
-    description: site.description,
+    description: site.dek,
     url: "/",
     locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
     title: site.name,
-    description: site.description,
+    description: site.dek,
   },
   robots: {
     index: true,

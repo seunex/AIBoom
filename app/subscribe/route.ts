@@ -5,30 +5,25 @@ import {
   saveSubscriber,
 } from "@/lib/db.mjs";
 import { mailConfigured, sendMail } from "@/lib/mail.mjs";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl, digestSentUrl, site } from "@/lib/site";
 
 export async function POST(request: Request) {
   const form = await request.formData();
   const email = String(form.get("email") || "").trim().toLowerCase();
-  const back = new URL("/subscribe/sent", request.url);
-
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    back.searchParams.set("status", "invalid");
-    return NextResponse.redirect(back, 303);
+    return NextResponse.redirect(digestSentUrl("invalid"), 303);
   }
 
   const existing = findSubscriber(email);
   if (existing?.status === "confirmed") {
-    back.searchParams.set("status", "confirmed");
-    return NextResponse.redirect(back, 303);
+    return NextResponse.redirect(digestSentUrl("confirmed"), 303);
   }
   if (existing?.status === "unsubscribed") {
     const subscriber = saveSubscriber(email, token(), token());
-    back.searchParams.set(
-      "status",
-      await sendConfirmation(subscriber.email, subscriber.confirm_token),
+    return NextResponse.redirect(
+      digestSentUrl(await sendConfirmation(subscriber.email, subscriber.confirm_token)),
+      303,
     );
-    return NextResponse.redirect(back, 303);
   }
 
   const subscriber = saveSubscriber(
@@ -36,11 +31,10 @@ export async function POST(request: Request) {
     existing?.confirm_token || token(),
     existing?.unsubscribe_token || token(),
   );
-  back.searchParams.set(
-    "status",
-    await sendConfirmation(subscriber.email, subscriber.confirm_token),
+  return NextResponse.redirect(
+    digestSentUrl(await sendConfirmation(subscriber.email, subscriber.confirm_token)),
+    303,
   );
-  return NextResponse.redirect(back, 303);
 }
 
 async function sendConfirmation(email: string, confirmToken: string) {
@@ -48,9 +42,9 @@ async function sendConfirmation(email: string, confirmToken: string) {
   const confirmUrl = absoluteUrl(`/subscribe/confirm?token=${confirmToken}`);
   const result = await sendMail({
     to: email,
-    subject: `Confirm the ${site.name} daily digest`,
-    text: `Confirm the daily digest for ${site.name}:\n${confirmUrl}\n\nIf you did not ask for this, ignore the note.`,
-    html: `<p>Confirm the daily digest for ${escapeHtml(site.name)}.</p><p><a href="${confirmUrl}">Confirm this address</a></p><p>If you did not ask for this, ignore the note.</p>`,
+    subject: `Confirm the ${site.fullName} daily digest`,
+    text: `Confirm the daily digest for ${site.fullName}:\n${confirmUrl}\n\nIf you did not ask for this, ignore the note.`,
+    html: `<p>Confirm the daily digest for ${escapeHtml(site.fullName)}.</p><p><a href="${confirmUrl}">Confirm this address</a></p><p>If you did not ask for this, ignore the note.</p>`,
   });
   return result.ok ? "sent" : "held";
 }

@@ -33,6 +33,8 @@ export async function generateMetadata({
   return {
     title: bits.length > 0 ? bits.join(" · ") : { absolute: site.name },
     description: site.description,
+    openGraph: { description: site.dek },
+    twitter: { description: site.dek },
     alternates: { canonical: path },
     robots: query
       ? { index: false, follow: true }
@@ -63,6 +65,7 @@ async function DeskIndex() {
           {
             "@type": "WebSite",
             name: site.name,
+            alternateName: site.fullName,
             url: absoluteUrl("/"),
             description: site.description,
             potentialAction: {

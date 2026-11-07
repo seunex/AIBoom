@@ -1,14 +1,21 @@
 export const site = {
   name: "Downstream",
+  fullName: "AI Boom Downstream",
   dek: "The other side of the AI boom",
   description:
-    "A reading room for how AI is changing work. Each item has our headline, a short summary, and a link back to the original article.",
-  suggestionEmail: "tips@downstream.example",
+    "AI Boom Downstream is a reading room for how AI is changing work. Each item has our headline, a short summary, and a link back to the original article.",
+  suggestionEmail: "hello@aiboom.news",
   url: (process.env.SITE_URL || "http://127.0.0.1:3456").replace(/\/$/, ""),
 };
 
 export function absoluteUrl(path = "/") {
   return `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+export function digestSentUrl(status: string) {
+  const url = new URL("/subscribe/sent", site.url);
+  url.searchParams.set("status", status);
+  return url;
 }
 
 export const suggestionMailto = `mailto:${site.suggestionEmail}?subject=${encodeURIComponent(

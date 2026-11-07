@@ -9,9 +9,7 @@ export default async function Image({ params }: PageProps<"/stories/[slug]">) {
   const { slug } = await params;
   const story = await getStory(slug);
   const title = story?.title ?? "Downstream";
-  const kicker = story
-    ? `${story.companies.join(", ")} · ${story.sourceName}`
-    : "Downstream";
+  const kicker = story ? `${story.companies.join(", ")} · ${story.sourceName}` : "aiboom.news";
 
   return new ImageResponse(
     (
@@ -20,17 +18,36 @@ export default async function Image({ params }: PageProps<"/stories/[slug]">) {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
           background: "#10211e",
           color: "#f3f7f6",
-          padding: "72px",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 6, color: "#9ed9d2" }}>DOWNSTREAM</div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 24, color: "#9ed9d2", marginBottom: 24 }}>{kicker}</div>
-          <div style={{ fontSize: 56, lineHeight: 1.15, maxWidth: 1000 }}>{title}</div>
+        <div style={{ width: 16, background: "#9ed9d2" }} />
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            flexDirection: "column",
+            justifyContent: "space-between",
+            padding: "52px 64px 52px 56px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "#9ed9d2",
+              fontSize: 22,
+              letterSpacing: 4,
+            }}
+          >
+            <div>DOWNSTREAM</div>
+            <div style={{ letterSpacing: 0 }}>aiboom.news</div>
+          </div>
+          <div style={{ fontSize: title.length > 80 ? 48 : 58, lineHeight: 1.15, maxWidth: 980 }}>
+            {title}
+          </div>
+          <div style={{ fontSize: 26, color: "#9ed9d2" }}>{kicker}</div>
         </div>
       </div>
     ),
